@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Workflow cible MACIF Unifiée</title>
+    <link rel="stylesheet" href="WFM.CSS">
+</head>
+
+<body>
+
+<header>
+    <h1>Workflow cible MACIF Unifiée</h1>
+    <p>Gestion des alertes LAF / LCB-FT et cycle de vie des situations atypiques</p>
+</header>
+
+<nav>
+   <button onclick="showPage('workflow')">Workflow</button>
+    <button onclick="window.location.href='Exigences.html'">Exigences Fonctionnelles</button>
+    <button onclick="showPage('regles')">Règles de gestion</button>
+    <button onclick="showPage('decisions')">Décisions/qualifs/sous-qualifs</button>
+</nav>
+
+<div id="workflow" class="page active">
+
+
+
+    <h2>Workflow cible commun</h2>
+
+<div class="workflow-schema">
+
+  <div class="source-box">
+    <h3>Sources d’alertes</h3>
+    <span>Alerte manuelle</span>
+    <span>Scénario automatique</span>
+    <span>Batch</span>
+    <span>Temps réel</span>
+    <span>Screening PAR / PPE</span>
+    <span>Signalement métier</span>
+  </div>
+
+  <div class="flow-line">↓</div>
+
+  <div class="main-step">1. Création de l’alerte</div>
+  <div class="flow-line">↓</div>
+
+  <div class="main-step">2. Attribution</div>
+  <div class="flow-line">↓</div>
+
+  <div class="split">
+    <div class="branch">
+      <h3>3. Analyse LAF</h3>
+      <p>Fraude, économie, suspicion fraude</p>
+    </div>
+
+    <div class="branch">
+      <h3>3. Analyse LCB-FT</h3>
+      <p>Opération atypique, PAR, PPE, SAN, SIP</p>
+    </div>
+
+    <div class="branch">
+      <h3>3. Analyse mixte</h3>
+      <p>LAF + LCB-FT parallèle ou séquentielle</p>
+    </div>
+  </div>
+
+  <div class="flow-line">↓</div>
+
+  <div class="split">
+    <div class="branch orange">
+      <h3>4. Attente complément</h3>
+      <p>Pièces justificatives / retour métier</p>
+    </div>
+
+    <div class="branch purple">
+      <h3>4. Examen renforcé</h3>
+      <p>ER si risque élevé ou dossier sensible</p>
+    </div>
+  </div>
+
+  <div class="flow-line">↓</div>
+
+  <div class="decision-zone">
+    <h3>5. Décision</h3>
+
+    <div class="decision-list">
+      <span>Cas avéré</span>
+      <span>Suspicion levée</span>
+      <span>Suspicion non avérée</span>
+      <span>Non pertinent</span>
+    </div>
+  </div>
+
+  <div class="flow-line">↓</div>
+
+  <div class="split">
+    <div class="branch red">
+      <h3>6. Clôture avec suite</h3>
+      <p>DS, surveillance, refus, rupture, gel avoirs</p>
+    </div>
+
+    <div class="branch green">
+      <h3>6. Clôture simple</h3>
+      <p>Sans DS / sans suite / justification conservée</p>
+    </div>
+
+    <div class="branch blue">
+      <h3>6. Clôture LAF</h3>
+      <p>Avec ou sans économie</p>
+    </div>
+  </div>
+
+  <div class="flow-line">↓</div>
+
+  <div class="main-step exception">
+    7. Réouverture exceptionnelle<br>
+    <small>Nouvelle information / retour autorité / erreur traitement</small>
+  </div>
+
+</div>
+
+    <h3>Schéma explicatif</h3>
+
+  <div class="imaglecap">
+    <img src="shéma.png" alt="">
+
+</div>
+
+</div>
+
+<script src="WFM.JS"></script>
+
+</body>
+</html>
